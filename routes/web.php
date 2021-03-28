@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SidebarController;
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +17,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('website.home');
-});
+
+Route::get('/', [SidebarController::class,'index'])->name('all-category');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-// Route::get('/website', [WebsiteController::class, 'index']);
+
+Route::get('/home', function () {
+    return view('admin.layouts.layout');
+})->name('home');
+
+
+Route::prefix('/home/category')->group(function () {
+
+Route::get('/',                 [CategoryController::class,'index'])    ->name('manage-category');
+Route::get('/create',           [CategoryController::class,'create'])   ->name('create-category');
+Route::post('/',                [CategoryController::class,'store'])    ->name('store-category');
+Route::get('/edit/{category}',  [CategoryController::class,'edit'])     ->name('edit-category');
+Route::post('update/{category}',[CategoryController::class,'update'])   ->name('update-category');
+Route::get('delete/{category}', [CategoryController::class,'destroy'])  ->name('delete-category');
+
+});
+
+
+Route::prefix('/home/subCategory')->group(function () {
+
+    Route::get('/',                     [SubCategoryController::class,'index'])    ->name('manage-sub_category');
+    Route::get('/create',               [SubCategoryController::class,'create'])   ->name('create-sub_category');
+    Route::post('/',                    [SubCategoryController::class,'store'])    ->name('store-sub_category');
+    Route::get('/edit/{sub_category}',  [SubCategoryController::class,'edit'])     ->name('edit-sub_category');
+    Route::post('update/{sub_category}',[SubCategoryController::class,'update'])   ->name('update-sub_category');
+    Route::get('delete/{sub_category}', [SubCategoryController::class,'destroy'])  ->name('delete-sub_category');
+});
+
+

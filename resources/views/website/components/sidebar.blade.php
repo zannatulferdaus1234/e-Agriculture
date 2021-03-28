@@ -1,60 +1,31 @@
 
-<div class="fluid-container">
-	<div class="row ">
-		<div class="col-3 ">
-			<div class="wrap">
-		        <div class="page-body">
-		            <div class="left-sidebar">
-		                <div id="left-nav" class="nano">
-		                    <div class="nano-content">
-		                        <nav>
-		                            <ul class="nav nav-left-lines" id="main-nav">
-		                                <li class=""><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
-		                                <li class="has-child-item close-item">
-		                                    <a><i class="fa fa-cubes" aria-hidden="true"></i><span>UI Elements</span></a>
-		                                    <ul class="nav child-nav level-1">
-		                                        <li><a href="ui-elements_panels.html">Panels</a></li>
+<div class="side-menu animate-dropdown outer-bottom-xs">
+    <div class="head"><i class="icon fa fa-align-justify fa-fw">
+        </i> Categories</div>
 
-		                                        <li class="has-child-item close-item">
-		                                            <a>Notifications</a>
-		                                            <ul class="nav child-nav level-2 ">
-		                                                <li><a href="ui-elements_notifications-pnotify.html">PNotify</a></li>
-		                                            </ul>
-		                                        </li>
-		                                    </ul>
-		                                </li>
-
-
-
-		                                <li class="has-child-item close-item">
-		                                    <a><i class="fa fa-cubes" aria-hidden="true"></i><span>UI Elements</span></a>
-		                                    <ul class="nav child-nav level-1">
-		                                        <li><a href="ui-elements_panels.html">Panels</a></li>
-
-		                                        <li class="has-child-item close-item">
-		                                            <a>Notifications</a>
-		                                            <ul class="nav child-nav level-2 ">
-		                                                <li><a href="ui-elements_notifications-pnotify.html">PNotify</a></li>
-		                                            </ul>
-		                                        </li>
-		                                    </ul>
-		                                </li>
-
-
-
-
-		                            </ul>
-		                        </nav>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-
-		</div>
-		<div class="col-8">
-		</div>
-	</div>
+    <nav class="yamm megamenu-horizontal">
+        <ul class="nav">
+            @foreach($category as $category)
+            <li class="dropdown menu-item"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon fa fa-shopping-bag" aria-hidden="true"></i>
+                {{ $category->name}}</a>
+                <ul class="dropdown-menu mega-menu">
+                    <li class="yamm-content">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-3">
+                                <ul class="links list-unstyled">
+                                    @foreach($category->sub_category as $sub_category)
+                                    <li><a href="#">{{ $sub_category->name}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            @endforeach
+        </ul>
+    </nav>
 
 </div>
-    
+

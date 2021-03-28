@@ -2,62 +2,77 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<meta name="keywords" content="MediaCenter, Template, eCommerce">
-<meta name="robots" content="all">
-<title>Flipmart premium HTML5 & CSS3 Template</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="MediaCenter, Template, eCommerce">
+    <meta name="robots" content="all">
+    <title>Flipmart premium HTML5 & CSS3 Template</title>
 
-<!-- Bootstrap Core CSS -->
-<link rel="stylesheet" href="{{ asset('assets/website/css/bootstrap.min.css') }}">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/bootstrap.min.css">
 
-<!-- Customizable CSS -->
-<link rel="stylesheet" href="{{ asset('assets/website/css/main.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/website/css/blue.css') }}">
+    <!-- Customizable CSS -->
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/main.css">
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/blue.css">
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/owl.transitions.css">
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/animate.min.css">
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/rateit.css">
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/bootstrap-select.min.css">
 
+    <!-- Icons/Glyphs -->
+    <link rel="stylesheet" href="{{ asset('/')}}assets/website/css/font-awesome.css">
 
-<!-- Icons/Glyphs -->
-<link rel="stylesheet" href="{{ asset('assets/website/css/font-awesome.css') }}">
-
-
-<!-- sidebar -->
-  <link rel="stylesheet" href="{{ asset('/')}}assets/admin/vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="{{ asset('/')}}assets/admin/vendor/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="{{ asset('/')}}assets/admin/css/style.css">
-
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body class="cnt-home">
+<body>
+
+    <header class="header-style-1">
+
+        @includeIf('website.components.header')
+
+        @includeIF('website.components.search-box')
+
+    </header>
+
+    <div class="body-content outer-top-xs">
+        <div class='container'>
+            <div class='row'>
+
+                <div class='col-md-3 sidebar'>
+                    @includeIF('website.components.sidebar')
+                </div>
+
+                <div class='col-md-9'>
+                    @yield('content')
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    @includeIf('website.components.footer')
 
 
 
-     @include('website.components.header')
-     <br>
-
-     @include('website.components.sidebar')
-
-
-
-            <!-- FOOTER na thakle o kaj korbe -->
-            <br><br><br><br><br><br><br><br><br>
-     @includeIF('website.components.footer')
-
-
-
-
-<!-- JavaScripts placed at the end of the document so the pages load faster -->
-<script src="{{ asset('assets/website/js/jquery-1.11.1.min.js') }}"></script>
-<script src="{{ asset('assets/website/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/website/js/bootstrap-hover-dropdown.min.js') }}"></script>
-<script src="{{ asset('assets/website/js/bootstrap-select.min.js') }}"></script>
-
-
-<!-- sidebar -->
- <script src="{{ asset('/')}}assets/admin/vendor/jquery/jquery-1.12.3.min.js"></script>
-    <script src="{{ asset('/')}}assets/admin/javascripts/template-script.min.js"></script>
-
+    <script src="{{ asset('/')}}assets/website/js/jquery-1.11.1.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/bootstrap.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/owl.carousel.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/echo.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/jquery.easing-1.3.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/bootstrap-slider.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/jquery.rateit.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/bootstrap-select.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/wow.min.js"></script>
+    <script src="{{ asset('/')}}assets/website/js/scripts.js"></script>
 </body>
 
 </html>
-
