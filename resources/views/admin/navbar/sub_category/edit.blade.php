@@ -1,5 +1,8 @@
 @extends('admin.layouts.layout')
 
+<!-- update  subcategory ,for admin -->
+
+
 @section('content')
 
     <div class="content-header">
@@ -7,7 +10,7 @@
             <ul class="breadcrumbs">
                 <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="javascript:avoid(0)">SubCategory</a></li>
-                <li><a href="javascript:avoid(0)">Add SubCategory</a></li>
+                <li><a href="javascript:avoid(0)">Update SubCategory</a></li>
 
             </ul>
         </div>
@@ -15,12 +18,12 @@
 
     <div class="row animated fadeInUp">
         <div class="row">
-            <!--HORIZONTAL--><br>
+            <br>
             <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <div class="panel b-primary bt-md">
                         <div class="panel-content">
                             <div class="row mb-xlg">
-                                <div class="col-md-6 text-success"><h2>Create SubCategory</h2></div>
+                                <div class="col-md-6 text-success"><h2>Update SubCategory</h2></div>
                                 <div class="col-md-6 text-right">
                                     <a  class="btn btn-primary" href="{{ route('manage-sub_category') }}">All SubCategory</a>
                                 </div>
@@ -29,8 +32,7 @@
                                 <div class="col-md-12">
                                     <form class="form-horizontal" method="POST" action="{{route('update-sub_category',$sub_category->id)}}" enctype="multipart/form-data">
                                         @csrf
-
-
+                                        @method('PATCH')
 
                                         <div class="form-group col-md-6">
                                             <label for="name" class="col-sm-4 control-label">SubCategory Name
@@ -246,6 +248,10 @@
                                                 <span class="text-danger">*</span></label>
                                             <div class="col-sm-8">
                                                 <input type="file" class="form-control" id="images" name="images" >
+
+                                                Old Image: <img src="{{URL::to('/storage/'.$sub_category->images)}}" style="height:60px; width:80px;">
+                                                <input type="hidden" name="old_images" value="{{'storage/'.$sub_category->images}}">
+
                                                 @error('images')
                                                     <p class="text-danger">{{$message}}</p>
                                                 @enderror
@@ -254,7 +260,7 @@
 
 
                                         <div class="form-group mt-xlg">
-                                            <button type="submit" class="btn btn-primary btn-block ">Save SubCategory</button>
+                                            <button type="submit" class="btn btn-primary btn-block ">Update SubCategory</button>
                                         </div>
 
 

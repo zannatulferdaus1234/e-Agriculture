@@ -1,5 +1,8 @@
 @extends('admin.layouts.layout')
 
+
+<!-- add subcategory ,for admin -->
+
 @section('content')
 
     <div class="content-header">
@@ -15,7 +18,7 @@
 
     <div class="row animated fadeInUp">
         <div class="row">
-            <!--HORIZONTAL--><br>
+            <br>
             <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <div class="panel b-primary bt-md">
                         <div class="panel-content">
@@ -245,17 +248,6 @@
                                             <div class="col-sm-8">
                                                 <textarea class="form-control" rows="4" id="yield" placeholder="Write a index" name="yield"></textarea>
                                                 @error('yield')
-                                                    <p class="text-danger">{{$message}}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group col-md-6">
-                                            <label for="images" class="col-sm-4 control-label">Images
-                                                <span class="text-danger">*</span></label>
-                                            <div class="col-sm-8">
-                                                <input type="file" class="form-control" id="images" name="images" >
-                                                @error('images')
                                                     <p class="text-danger">{{$message}}</p>
                                                 @enderror
                                             </div>

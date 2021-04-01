@@ -1,23 +1,23 @@
 @extends('admin.layouts.layout')
 
+
+<!-- show image for subcategory ,for admin -->
+
 @section('content')
-<!-- manage category ,for admin -->
 
 <div class="content">
-
     <div class="content-header">
         <div class="leftside-content-header">
             <ul class="breadcrumbs">
                 <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="javascript:avoid(0)">Category</a></li>
-                <li><a href="javascript:avoid(0)">Manage Category</a></li>
+                <li><a href="javascript:avoid(0)">SubCategory</a></li>
+                <li><a href="javascript:avoid(0)">Image for SubCategory</a></li>
             </ul>
         </div>
     </div>
 
     <div class="row animated fadeInUp">
       <div class="row">
-
         <div class="col-sm-12 col-md-8">
 
 
@@ -25,10 +25,12 @@
                 <div class="panel-content">
                   <div class="row">
                     <div class="col-xs-6">
-                      <h4>Manage Category</h4>
+                      <h4>Image for  SubCategory</h4>
                     </div>
                     <div class="col-xs-6 text-right">
-                      <a class="btn btn-primary" href="{{route('create-category')}}">Add Category</a>
+                      <a class="btn btn-primary" href="{{route('manage-sub_category')}}">All SubCategory</a>
+                      <a class="btn btn-primary" href="{{route('create-crops_image',$sub_category->id)}}">Add Image</a>
+
                     </div>
 
                   </div>
@@ -39,25 +41,30 @@
                                 <thead>
                                   <tr>
                                       <th>SL</th>
-                                      <th>Category Name</th>
+                                      <th>SubCategory Name</th>
+                                      <th>Image for SubCategory</th>
                                       <th>Action</th>
                                   </tr>
                                 </thead>
                                 <tbody>
 
-                                  @forelse($category as $category)
+                                  @forelse($sub_category->crops_image as $crops_image)
 
                                   <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{ $category->name }}</td>
+                                    <td>{{$crops_image->sub_category->name}}</td>
+
+                                    <td style="height:40px; width:40px;">
+                                        <img src="{{ asset('/storage/'.$crops_image->crops_image)}}" style="height:60px; width:80px;">
+                                    </td>
+
                                     <td>
-                                        <a href="{{ route('edit-category',$category-> id)}}" class="btn btn-warning btn-sm"> <i class="fa fa-pencil"> Edit</i></a>
-                                        <a href="{{ route('delete-category',$category-> id)}}" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"> Delete</i></a>
+                                        <a href="{{ route('delete-crops_image',[$crops_image->sub_category->id,$crops_image->id]) }}" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"> Delete</i></a>
                                     </td>
                                   </tr>
 
                                   @empty
-                                      <p class="my-5 text-danger">No Category Inserted Yet !!! </p>
+                                      <p class="my-5">No Numbers Found </p>
 
                                   @endforelse
 
@@ -70,8 +77,8 @@
                 </div>
             </div>
         </div>
-
       </div>
     </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 </div>
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Validation\Rule;
 use App\Models\SubCategory;
 use App\Models\Category;
 
@@ -47,13 +48,8 @@ class SubCategoryController extends Controller
             'disease'             => 'max:400',
             'harvesting'          => 'max:400',
             'yield'               => 'max:400',
-            'images'              => 'image',
         ]);
 
-        if(request('images'))
-        {
-            $attributes['images'] = request('images')->store('crops_images','public');
-        }
         SubCategory::create($attributes);
 
         return redirect(route('manage-sub_category'));
@@ -72,9 +68,31 @@ class SubCategoryController extends Controller
      */
     public function update(SubCategory $sub_category)
     {
-        $sub_category->update(request()->validate([
-            'name'      => 'required|max:255',
-        ]));
+        $attributes = request()->validate([
+
+            'name'                => ['required', 'max:50', Rule::unique('sub_categories')->ignore($sub_category)],
+            'index'               => 'max:400',
+            'lifespan'            => 'max:400',
+            'breed_innovation'    => 'max:400',
+            'land_selection'      => 'max:400',
+            'seed_picking'        => 'max:400',
+            'seedbed_preparation' => 'max:400',
+            'seedbed_care'        => 'max:400',
+            'land_preparation'    => 'max:400',
+            'planting_distance'   => 'max:400',
+            'seedlings'           => 'max:400',
+            'weed_control'        => 'max:400',
+            'fertilizer'          => 'max:400',
+            'irrigation'          => 'max:400',
+            'pest'                => 'max:400',
+            'insect'              => 'max:400',
+            'disease'             => 'max:400',
+            'harvesting'          => 'max:400',
+            'yield'               => 'max:400',
+
+        ]);
+
+        $sub_category->update($attributes);
 
         return redirect(route('manage-sub_category'));
     }

@@ -6,22 +6,22 @@
 
 
     <!--Category-->
-        <li class="has-child-item close-item {{ request()->is('home/category*') ? 'open-item':''}}">
+        <li class="has-child-item close-item {{ request()->is('category*') ? 'open-item':''}}">
             <a><i class="fa fa-list" aria-hidden="true"></i><span>Category</span> </a>
             <ul class="nav child-nav level-1">
-                <li class="{{ request()->is('home/category/create','home/category/edit/*') ? 'active-item':''}}"><a href="{{ route('create-category')}}">Add category</a></li>
-                <li class="{{ request()->is('home/category') ? 'active-item':''}}"><a href="{{ route('manage-category')}}">Manage category</a></li>
+                <li class="{{ request()->is('category/create','category/edit/*') ? 'active-item':''}}"><a href="{{ route('create-category')}}">Add category</a></li>
+                <li class="{{ request()->is('category') ? 'active-item':''}}"><a href="{{ route('manage-category')}}">Manage category</a></li>
             </ul>
         </li>
 
 
 
     <!--Sub Category-->
-        <li class="has-child-item close-item {{ request()->is('home/subCategory*') ? 'open-item':''}}">
+        <li class="has-child-item close-item {{ request()->is('subCategory*') ? 'open-item':''}}">
             <a><i class="fa fa-list" aria-hidden="true"></i><span>Sub Category</span> </a>
             <ul class="nav child-nav level-1">
-                <li class="{{ request()->is('home/subCategory/create','home/subCategory/edit/*') ? 'active-item':''}}"><a href="{{ route('create-sub_category')}}">Add SubCategory</a></li>
-                <li class="{{ request()->is('home/subCategory') ? 'active-item':''}}"><a href="{{ route('manage-sub_category')}}">Manage SubCategory</a></li>
+                <li class="{{ request()->is('subCategory/create','subCategory/edit/*') ? 'active-item':''}}"><a href="{{ route('create-sub_category')}}">Add SubCategory</a></li>
+                <li class="{{ request()->is('subCategory','subCategory/images*') ? 'active-item':''}}"><a href="{{ route('manage-sub_category')}}">Manage SubCategory</a></li>
             </ul>
         </li>
 

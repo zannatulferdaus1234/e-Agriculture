@@ -13,12 +13,15 @@
     </div>
 </div>
 
+
+<!-- update category ,for admin -->
 <div class="row animated fadeInUp">
     <div class="row">
-        <!--HORIZONTAL--><br>
+        <br>
         <div class="col-sm-12 col-md-8 col-md-offset-2">
                 <div class="panel b-primary bt-md">
                     <div class="panel-content">
+
                         <div class="row">
                             <div class="col-md-6 text-success"><h4>Update Category</h4></div>
                             <div class="col-md-6 text-right">
@@ -30,6 +33,8 @@
                             <div class="col-md-10">
                                 <form class="form-horizontal" method="POST" action="{{ route('update-category',$category->id)}}">
                                     @csrf
+                                    @method('PATCH')
+
                                     <div class="form-group text-md">
                                         <label for="name" class="col-sm-4 control-label">Update Category Name<span class="text-danger">*</span></label>
                                         <div class="col-sm-8">

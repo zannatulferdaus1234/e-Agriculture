@@ -13,9 +13,12 @@
     </div>
 </div>
 
+
+<!-- create category ,for admin -->
+
 <div class="row animated fadeInUp">
     <div class="row">
-        <!--HORIZONTAL--><br>
+        <br>
         <div class="col-sm-12 col-md-8 col-md-offset-2">
                 <div class="panel b-primary bt-md">
                     <div class="panel-content">

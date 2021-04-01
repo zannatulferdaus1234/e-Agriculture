@@ -33,7 +33,6 @@
 </head>
 <body>
 
-    <!-- header section -->
     <header class="header-style-1">
 
         @includeIf('website.components.header')
@@ -46,15 +45,8 @@
         <div class='container'>
             <div class='row'>
 
-                <!-- sidebar -->
 
-                <div class='col-md-3 sidebar'>
-                    @includeIF('website.components.sidebar')
-                </div>
-
-                <!-- Main body -->
-
-                <div class='col-md-9'>
+                <div class='col-md-12'>
                     @yield('content')
                 </div>
 
@@ -62,7 +54,7 @@
         </div>
     </div>
 
-    <!-- footer section -->
+
     @includeIf('website.components.footer')
 
 

@@ -18,7 +18,9 @@
                                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="category.html">
                                     Categories <b class="caret"></b></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li class="menu-header">Computer</li>
+                                        {{-- @foreach($category as $category) --}}
+                                        <li class="menu-header">Name</li>
+                                        {{-- @endforeach --}}
                                     </ul>
                                 </li>
                             </ul>
@@ -31,9 +33,17 @@
             </div>
 
 
+
+            <!-- User Login / Register -->
+
+            <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
+                <div class="">
+                    <a href="{{ route('register-enduser') }}" class="btn-upper btn btn-register ">Login / Register </a>
+                </div>
+            </div>
+
+
+
         </div>
-
-
-
     </div>
 </div>

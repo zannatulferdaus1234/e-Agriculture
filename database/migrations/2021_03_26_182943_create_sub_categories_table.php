@@ -35,7 +35,6 @@ class CreateSubCategoriesTable extends Migration
             $table->longText('disease')            ->nullable();
             $table->longText('harvesting')         ->nullable();
             $table->longText('yield')              ->nullable();
-            $table->string('images')               ->nullable();
 
             $table->timestamps();
         });
