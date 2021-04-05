@@ -19,6 +19,16 @@ harvesting
 yield
 images
 
+
+sub_category_id
+grain_varieties
+soil_type
+title
+details
+image
+
+
+
                                       <th>Index</th>
                                       <th>Lifespan</th>
                                       <th>Breed_innovation</th>

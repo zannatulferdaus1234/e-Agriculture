@@ -33,10 +33,10 @@
                             <div class="col-md-10">
                                 <form class="form-horizontal" method="POST" action="{{ route('store-category')}}">
                                     @csrf
-                                    <div class="form-group  d-flex hustify-content-center">
+                                    <div class="form-group ">
                                         <label for="name" class="col-sm-3 control-label">Category Name<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Category">
+                                            <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" placeholder="Enter Category">
 
                                             @error('name')
                                                 <p class="text-danger">{{$message}}</p>

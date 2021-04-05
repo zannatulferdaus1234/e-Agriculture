@@ -22,23 +22,16 @@ class CropsImageController extends Controller
             'sub_category_id' => 'required',
             'crops_image' => 'required|image',
         ]);
+
+
         if(request('crops_image'))
         {
             $attributes['crops_image'] = request('crops_image')->store('crops_images','public');
+
+            // foreach(request('crops_image') as $crops_image)
+            // {
+            // }
         }
-
-
-        // if(request('crops_image'))
-        // {
-        //     foreach (request()->file('crops_image') as $index => $item) {
-        //         $attributes[] = request()->files[$index]->store('crops_images','public');
-        //     }
-        //     // foreach(request('crops_image') as $crops_image)
-        //     // {
-        //     //     $attributes[] = $crops_image->store('crops_images','public');
-        //     // }
-
-        // }
         CropsImage::create($attributes);
 
         return redirect(route('manage-sub_category'));

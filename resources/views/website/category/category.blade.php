@@ -13,13 +13,15 @@
     <div id="hero">
         <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-            @foreach($sub_category->crops_image as $crops_image)
+            @forelse($sub_category->crops_image as $crops_image)
             <div class="item" >
                 <img src="{{URL::to('/storage/'.$crops_image->crops_image)}}" height="400" width="700">
             </div>
 
             @empty
+            <div class="item" >
                 <p class="my-5 text-danger">No Image Inserted Yet !!! </p>
+            </div>
             @endforelse
 
         </div>
@@ -43,6 +45,17 @@
     <h3 class="mt-5">Disease:</h3> <p>{{$sub_category->disease}}</p>
     <h3 class="mt-5">Harvesting:</h3> <p>{{$sub_category->harvesting}}</p>
     <h3 class="mt-5">Yield:</h3> <p>{{$sub_category->yield}}</p>
+
+
+
+    <div class="mt-5">
+        <h1 class="text-warning">Questions for {{ucfirst($sub_category->name)}}</h1>
+
+        @foreach($sub_category->crops_question as $crops_question)
+            <h3><a href="{{ route('show-questions',[$crops_question->sub_category->id,$crops_question->id]) }} ">{{ $crops_question->title }}</a></h3>
+
+        @endforeach
+    </div>
 
 </div>
 

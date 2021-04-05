@@ -21,30 +21,20 @@
             <a><i class="fa fa-list" aria-hidden="true"></i><span>Sub Category</span> </a>
             <ul class="nav child-nav level-1">
                 <li class="{{ request()->is('subCategory/create','subCategory/edit/*') ? 'active-item':''}}"><a href="{{ route('create-sub_category')}}">Add SubCategory</a></li>
-                <li class="{{ request()->is('subCategory','subCategory/images*') ? 'active-item':''}}"><a href="{{ route('manage-sub_category')}}">Manage SubCategory</a></li>
+                <li class="{{ request()->is('subCategory','subCategory/*/images/show','subCategory/*/images/add','subCategory/*/question/show','subCategory/*/question/add') ? 'active-item':''}}"><a href="{{ route('manage-sub_category')}}">Manage SubCategory</a></li>
             </ul>
         </li>
 
-         {{-- <!-- Agricultural Problems -->
-         <li class="has-child-item close-item {{ request()->is('problems/*') ? 'open-item':''}}">
-            <a><i class="fa fa-list" aria-hidden="true"></i><span>Agricultural Problems </span> </a>
+
+        <!-- Question-->
+        <li class="has-child-item close-item {{ request()->is('questions*') ? 'open-item':''}}">
+            <a><i class="fa fa-list" aria-hidden="true"></i><span>Question</span> </a>
             <ul class="nav child-nav level-1">
-                <li class="{{ request()->is('problems/create','problems/edit/*') ? 'active-item':''}}"><a href="{{ route('problems.create')}}">Crops Problems</a></li>
-                <li class="{{ request()->is('problems/all') ? 'active-item':''}}"><a href="{{ route('problems.index')}}">All Problems</a></li>
+                <li class="{{ request()->is('questions/add','questions/*/edit') ? 'active-item':''}}"><a href="{{ route('create-crops_question')}}">Add Question</a></li>
+                <li class="{{ request()->is('questions') ? 'active-item':''}}"><a href="{{ route('manage-crops_question')}}">All Question</a></li>
             </ul>
         </li>
 
-
-        <!-- Agricultural Solutios -->
-        <li class="has-child-item close-item {{ request()->is('solutions/*') ? 'open-item':''}}">
-           <a><i class="fa fa-list" aria-hidden="true"></i><span>Agricultural Slotution </span> </a>
-           <ul class="nav child-nav level-1">
-               <li class="{{ request()->is('solutions/create','solutions/edit/*') ? 'active-item':''}}"><a href="{{ route('solutions.create')}}"> Problem Solutions</a></li>
-               <li class="{{ request()->is('solutions/all') ? 'active-item':''}}"><a href="{{ route('solutions.index')}}">All Solution</a></li>
-           </ul>
-       </li>
-
---}}
 
 
         <!--PAGES-->

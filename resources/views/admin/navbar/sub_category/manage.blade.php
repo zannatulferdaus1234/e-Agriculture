@@ -20,12 +20,12 @@
     <div class="row">
 
         <div class="col-sm-12 col-md-10 col-md-offset-1">
-                <div class="panel b-primary bt-md">
+            <div class="panel b-primary bt-md">
                     <div class="panel-content">
                         <div class="row mb-xlg">
                             <div class="col-md-6 text-success"><h2>Manage SubCategory</h2></div>
                             <div class="col-md-6 text-right">
-                                <a  class="btn btn-primary" href="{{ route('manage-sub_category') }}">All SubCategory</a>
+                                <a  class="btn btn-primary" href="{{ route('create-sub_category') }}">Add SubCategory</a>
                             </div>
                         </div>
                         <div class="row text-md">
@@ -55,6 +55,10 @@
                                     <td>
                                         <a href="{{route('show-crops_image',$sub_category->id)}}" class="btn btn-primary">See Image</a>
                                         <a href="{{route('create-crops_image',$sub_category->id)}}" class="btn btn-primary">Add Image</a>
+                                    </td>
+
+                                    <td>
+                                        <a href="{{route('show-crops_question',$sub_category->id)}}" class="btn btn-primary">See Question</a>
                                     </td>
 
                                     <td>
