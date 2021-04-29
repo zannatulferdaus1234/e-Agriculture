@@ -9,7 +9,7 @@
     <div class="leftside-content-header">
         <ul class="breadcrumbs">
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="javascript:avoid(0)">SubCategory</a></li>
+            <li><a href="javascript:avoid(0)">Question</a></li>
             <li><a href="javascript:avoid(0)">All Question</a></li>
 
         </ul>
@@ -47,18 +47,18 @@
                                 </thead>
                                 <tbody>
 
-                                  @forelse($sub_category->crops_question as $crops_question)
+                                  @forelse($sub_category->question as $question)
 
                                   <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$crops_question->sub_category->name}}</td>
-                                    <td>{{$crops_question->grain_varieties}}</td>
-                                    <td>{{$crops_question->soil_type}}</td>
-                                    <td>{{$crops_question->title}}</td>
-                                    <td>{{$crops_question->details}}</td>
+                                    <td>{{$question->sub_category->name}}</td>
+                                    <td>{{$question->grain_varieties}}</td>
+                                    <td>{{$question->soil_type}}</td>
+                                    <td>{{$question->title}}</td>
+                                    <td>{{$question->details}}</td>
 
                                     <td style="height:40px; width:40px;">
-                                        <img src="{{ asset('/storage/'.$crops_question->image)}}" style="height:60px; width:80px;">
+                                        <img src="{{ asset('/storage/'.$question->image)}}" style="height:60px; width:80px;">
                                     </td>
                                   </tr>
 

@@ -7,7 +7,7 @@
         <ul class="breadcrumbs">
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('home') }}">Home</a></li>
             <li><a href="javascript:avoid(0)">Category</a></li>
-            <li><a href="javascript:avoid(0)">Add Category</a></li>
+            <li><a href="javascript:avoid(0)">Update Category</a></li>
 
         </ul>
     </div>

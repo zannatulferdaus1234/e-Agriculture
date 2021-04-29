@@ -6,8 +6,8 @@
     <div class="leftside-content-header">
         <ul class="breadcrumbs">
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="javascript:avoid(0)">Sub Category</a></li>
-            <li><a href="javascript:avoid(0)">Add Question</a></li>
+            <li><a href="javascript:avoid(0)">Question</a></li>
+            <li><a href="javascript:avoid(0)">Update Question</a></li>
 
         </ul>
     </div>
@@ -23,7 +23,7 @@
                 <div class="panel b-primary bt-md">
                     <div class="panel-content">
                         <div class="row">
-                            <div class="col-md-6 text-success"><h4>Create Question</h4></div>
+                            <div class="col-md-6 text-success"><h4>Update Question</h4></div>
                             <div class="col-md-6 text-right">
                             <a  class="btn btn-primary" href="{{ route('manage-crops_question')}}">All Question</a>
                         </div>
@@ -33,24 +33,25 @@
                             <div class="col-md-10">
                                 <form class="form-horizontal" method="POST" action="{{ route('update-crops_question',$crops_question->id)}}" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PATCH')
 
                                     <div class="form-group mt-lg">
                                         <label for="sub_category" class="col-sm-3 control-label">Select SubCategory<span class="text-danger">*</span></label>
                                         <div class="col-sm-6">
                                             <select class="form-control" id="sub_category" name="sub_category_id">
                                                 @foreach($sub_category as $sub_category)
-                                                    <option value="{{$sub_category->id }}">{{ ucwords($sub_category['name'])}} </option>
+                                                    <option value="{{$sub_category->id }}" {{$sub_category->id== $crops_question->sub_category_id ? 'selected': ''}}>{{ ucwords($sub_category['name'])}} </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group mt-md">
-                                        <label for="grain_varieties" class="col-sm-3 control-label">Crops Grain<span class="text-danger">*</span></label>
+                                        <label for="grain" class="col-sm-3 control-label">Crops Grain<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="grain_varieties" name="grain_varieties" value="{{$crops_question['grain_varieties']}}" placeholder="Enter Crops Grain">
+                                            <input type="text" class="form-control" id="grain" name="grain" value="{{$crops_question['grain']}}" placeholder="Enter Crops Grain">
 
-                                            @error('grain_varieties')
+                                            @error('grain')
                                                 <p class="text-danger">{{$message}}</p>
                                             @enderror
                                         </div>
@@ -109,7 +110,7 @@
 
                                     <div class="form-group mt-xlg">
                                         <div class="col-sm-offset-3 col-sm-6">
-                                            <button type="submit" class="btn btn-primary">Save Question</button>
+                                            <button type="submit" class="btn btn-primary">Update Question</button>
                                         </div>
                                     </div>
 

@@ -9,7 +9,7 @@
     <div class="leftside-content-header">
         <ul class="breadcrumbs">
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="javascript:avoid(0)">SubCategory</a></li>
+            <li><a href="javascript:avoid(0)">Question</a></li>
             <li><a href="javascript:avoid(0)">All Question</a></li>
 
         </ul>
@@ -52,7 +52,7 @@
                                   <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$crops_question->sub_category->name}}</td>
-                                    <td>{{$crops_question->grain_varieties}}</td>
+                                    <td>{{$crops_question->grain}}</td>
                                     <td>{{$crops_question->soil_type}}</td>
                                     <td>{{$crops_question->title}}</td>
                                     <td>{{$crops_question->details}}</td>
@@ -62,7 +62,7 @@
                                     </td>
 
                                     <td>
-                                        <a href="questions/{{$crops_question->id}}/solutions/show" class="btn btn-primary">See Solution</a>
+                                        <a href="{{route('show-crops_solution',$crops_question->id)}}" class="btn btn-primary">See Solution</a>
                                         <a href="{{route('create-crops_solution',$crops_question->id)}}" class="btn btn-primary">Add Solution</a>
                                     </td>
 

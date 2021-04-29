@@ -6,7 +6,7 @@
     <div class="leftside-content-header">
         <ul class="breadcrumbs">
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="javascript:avoid(0)">Sub Category</a></li>
+            <li><a href="javascript:avoid(0)">Question</a></li>
             <li><a href="javascript:avoid(0)">Add Question</a></li>
 
         </ul>

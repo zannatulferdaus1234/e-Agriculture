@@ -9,8 +9,8 @@
     <div class="leftside-content-header">
         <ul class="breadcrumbs">
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="javascript:avoid(0)">SubCategory</a></li>
-            <li><a href="javascript:avoid(0)">All Question</a></li>
+            <li><a href="javascript:avoid(0)">Solutions</a></li>
+            <li><a href="javascript:avoid(0)">All Solutions</a></li>
 
         </ul>
     </div>
@@ -23,7 +23,7 @@
             <div class="panel b-primary bt-md">
                     <div class="panel-content">
                         <div class="row mb-xlg">
-                            <div class="col-md-6 text-success"><h2>View Questions</h2></div>
+                            <div class="col-md-6 text-success"><h2>View Solutions</h2></div>
                             <div class="col-md-6 text-right">
                                 <a  class="btn btn-primary" href="{{ route('create-crops_question') }}">Add Question</a>
                             </div>
@@ -35,10 +35,9 @@
                                 <thead>
                                   <tr>
                                       <th>SL</th>
-
-                                      <th>Title</th>
+                                      <th>User Name</th>
+                                      <th>Question Title</th>
                                       <th>Details</th>
-
                                       <th>Action</th>
                                   </tr>
                                 </thead>
@@ -48,11 +47,13 @@
 
                                   <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$solution->crops_question->id}}</td>
-                                    <td>{{$solution->title}}</td>
+                                    <td>{{$solution->user->name}}</td>
+                                    <td>{{$solution->question->title}}</td>
                                     <td>{{$solution->details}}</td>
-
-
+                                    <td>
+                                        <a href="{{ route('edit-crops_solution',$solution->id) }}" class="btn btn-warning btn-sm"> <i class="fa fa-pencil"> Edit</i></a>
+                                        <a href="{{ route('delete-crops_solution',$solution->id) }}" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"> Delete</i></a>
+                                    </td>
                                   </tr>
 
                                   @empty

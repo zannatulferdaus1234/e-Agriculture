@@ -37,8 +37,9 @@
                                       <th>SL</th>
                                       <th>Category Name</th>
                                       <th>SubCategory Name</th>
-                                      <th>Images</th>
-                                      <th>Problems</th>
+                                      <th>Image</th>
+                                      <th>Contents</th>
+                                      <th>Questions</th>
                                       <th>Action</th>
                                   </tr>
                                 </thead>
@@ -52,9 +53,12 @@
                                     <td>{{ $sub_category->category->name }}</td>
                                     <td>{{ $sub_category->name }}</td>
 
+                                    <td style="height:40px; width:40px;">
+                                        <img src="{{ asset('/storage/'.$sub_category->image)}}" style="height:60px; width:80px;">
+                                    </td>
+
                                     <td>
-                                        <a href="{{route('show-crops_image',$sub_category->id)}}" class="btn btn-primary">See Image</a>
-                                        <a href="{{route('create-crops_image',$sub_category->id)}}" class="btn btn-primary">Add Image</a>
+                                        <a href="{{route('show-content',$sub_category->id)}}" class="btn btn-primary">See Contents</a>
                                     </td>
 
                                     <td>

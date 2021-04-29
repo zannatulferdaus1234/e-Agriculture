@@ -20,12 +20,14 @@ class SubCategory extends Model
         return $this->hasMany(CropsImage::class);
     }
 
-    public function crops_question()
+    public function content()
     {
-        return $this->hasMany(CropsQuestion::class);
+        return $this->hasMany(Content::class);
     }
 
-
-
+    public function question()
+    {
+        return $this->hasMany(Question::class);
+    }
 
 }

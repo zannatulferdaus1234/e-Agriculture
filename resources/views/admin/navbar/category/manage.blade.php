@@ -40,6 +40,7 @@
                                   <tr>
                                       <th>SL</th>
                                       <th>Category Name</th>
+                                      <th>Status</th>
                                       <th>Action</th>
                                   </tr>
                                 </thead>
@@ -50,6 +51,7 @@
                                   <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{ $category->name }}</td>
+                                  <td> <input data-size="mini" type="checkbox" data-toggle="toggle" data-on="Active" data-off="Inactive" id="catagoryStatus" data-id="{{ $category->id }}" {{ $category->status==1 ?'checked':''}}></td>
                                     <td>
                                         <a href="{{ route('edit-category',$category-> id)}}" class="btn btn-warning btn-sm"> <i class="fa fa-pencil"> Edit</i></a>
                                         <a href="{{ route('delete-category',$category-> id)}}" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"> Delete</i></a>
@@ -74,4 +76,8 @@
       </div>
     </div>
 </div>
+
+
+
+
 @endsection

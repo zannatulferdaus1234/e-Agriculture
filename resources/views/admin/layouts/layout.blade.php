@@ -26,79 +26,23 @@
     <!--TEMPLATE css-->
     <!-- ========================================================= -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/admin/stylesheets/css/style.css">
+
+    <!--status toggle css -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 
 
 <body>
     <div class="wrap">
+
         <!-- page HEADER -->
-        <!-- ========================================================= -->
-        <div class="page-header">
-            <!-- LEFTSIDE header -->
-            <div class="leftside-header">
-                <div class="logo">
-                    <a href="{{ route('home') }}" class="on-click">
-                        <img alt="logo" src="#" >
-                    </a>
-                </div>
-                <div id="menu-toggle" class="visible-xs toggle-left-sidebar" data-toggle-class="left-sidebar-open" data-target="html">
-                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
-                </div>
-            </div>
-            <!-- RIGHTSIDE header -->
-            <div class="rightside-header">
-                <div class="header-middle"></div>
-                <!--SEARCH HEADERBOX-->
-                <div class="header-section" id="search-headerbox">
-                    <input type="text" name="search" id="search" placeholder="Search...">
-                    <i class="fa fa-search search" id="search-icon" aria-hidden="true"></i>
-                    <div class="header-separator"></div>
-                </div>
-
-                <!--USER HEADERBOX -->
-                <div class="header-section" id="user-headerbox">
-                    <div class="user-header-wrap">
-                        <div class="user-photo">
-                            <img alt="profile photo" src="{{ asset('/') }}assets/admin/images/avatar/avatar_user.jpg" />
-                        </div>
-                        <div class="user-info">
-                            <span class="user-name">{{ Auth::User()->name}} </span>
-                            <span class="user-profile">Admin</span>
-                        </div>
-                        <i class="fa fa-plus icon-open" aria-hidden="true"></i>
-                        <i class="fa fa-minus icon-close" aria-hidden="true"></i>
-                    </div>
-                    <div class="user-options dropdown-box">
-                        <div class="drop-content basic">
-                            <ul>
-                                <li> <a href="pages_user-profile.html"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-                                <li> <a href="pages_lock-screen.html"><i class="fa fa-lock" aria-hidden="true"></i> Lock Screen</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-separator"></div>
-
-                <!--Log out -->
-                <div class="header-section">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                            <i class="fa fa-sign-out log-out" aria-hidden="true"></i>
-                        </x-jet-responsive-nav-link>
-                    </form>
-                </div>
+        @includeIf('admin.layouts.header')
 
 
-            </div>
-        </div>
         <!-- page BODY -->
-        <!-- ========================================================= -->
+
         <div class="page-body">
             <!-- LEFT SIDEBAR -->
-            <!-- ========================================================= -->
             <div class="left-sidebar">
                 <!-- left sidebar HEADER -->
                 <div class="left-sidebar-header">
@@ -107,8 +51,8 @@
                         <span></span>
                     </div>
                 </div>
-                <!-- NAVIGATION -->
-                <!-- ========================================================= -->
+
+
                 <div id="left-nav" class="nano">
                     <div class="nano-content">
 
@@ -116,15 +60,14 @@
 
                     </div>
                 </div>
+
             </div>
 
 
-            <!-- CONTENT -->
-            <!-- ========================================================= -->
 
 
             <div class="content">
-            @yield('content')
+                @yield('content')
             </div>
 
 
@@ -135,6 +78,11 @@
     <script src="{{ asset('/') }}assets/admin/vendor/jquery/jquery-1.12.3.min.js"></script>
     <script src="{{ asset('/') }}assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="{{ asset('/') }}assets/admin/vendor/nano-scroller/nano-scroller.js"></script>
+
+    <!--status toggle javascript-->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
     <!--TEMPLATE scripts-->
     <!-- ========================================================= -->
     <script src="{{ asset('/') }}assets/admin/javascripts/template-script.min.js"></script>
@@ -149,6 +97,28 @@
     <script src="{{ asset('/') }}assets/admin/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <!--Examples-->
     <script src="{{ asset('/') }}assets/admin/javascripts/examples/dashboard.js"></script>
+
+    <script >
+        $('body').on('change','#catagoryStatus',function(){
+            var id = $(this).attr('data-id');
+
+            if(this.checked){
+                var status=1;
+            }else{
+                var status =0;
+            }
+
+            $.ajax({
+                url : 'category/categoryStatus/' +id+ '/' +status,
+                type : "GET",
+                success:function(result)
+                {
+                    console.log(result);
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
