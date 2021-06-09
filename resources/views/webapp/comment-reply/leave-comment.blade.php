@@ -18,6 +18,18 @@
        <div class="container">
           <div class="row">
              <div class="col-lg-9 col-md-8">
+
+
+                 <div class="wf100 comment-form">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        @guest('end_user')
+                            <h4><a href="{{ route('userLogin')}} ">Please Login to make a comment</a></h4>
+                        @endguest
+                        <a class=" btn btn-primary text-light float-right mb-4" href="{{ url()->previous() }}">Back to the previous page</a>
+                    </div>
+                 </div>
+
+
                 <!--Blog Single Content Start-->
                 <div class="blog-single-content">
                    <div class="blog-single-thumb"><img src="{{URL::to('/storage/'.$content->image)}}" alt="content-image"></div>
@@ -66,8 +78,7 @@
 
 
                             </div>
-                        @else
-                            <h4><a href="{{ route('userLogin')}} ">Please Login to make a comment</a></h4>
+
                        @endauth
 
                    </div>

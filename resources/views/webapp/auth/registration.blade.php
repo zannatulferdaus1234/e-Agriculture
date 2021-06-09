@@ -1,13 +1,22 @@
 
 
-<form action="{{ route('create_userRegistration') }}" method="POST">
+<form action="{{ route('create_userRegistration') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <ul class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Your Name" name="name" value="{{old('name')}}"  autofocus autocomplete="name" >
+                <input type="text" class="form-control" placeholder="Your Name" name="name" value="{{old('name')}}"  >
             </div>
             @error('name')
+            <p class="text-danger">{{$message}}</p>
+            @enderror
+        </div>
+
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="email" class="form-control" placeholder="Enter your email " name="email" value="{{old('email')}}" >
+            </div>
+            @error('email')
             <p class="text-danger">{{$message}}</p>
             @enderror
         </div>
@@ -21,11 +30,12 @@
             @enderror
         </div>
 
+
         <div class="col-md-6">
             <div class="input-group">
-                <input type="email" class="form-control" placeholder="Enter your email " name="email" value="{{old('email')}}" >
+                <input type="file" class="form-control" placeholder="Enter your email " name="avatar" value="{{old('avatar')}}" >
             </div>
-            @error('email')
+            @error('avatar')
             <p class="text-danger">{{$message}}</p>
             @enderror
         </div>

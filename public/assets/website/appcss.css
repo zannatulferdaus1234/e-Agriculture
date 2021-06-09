@@ -1,0 +1,143 @@
+html,
+body {
+  width: 100%;
+  font-size: 19px;          /*size of +*/
+}
+
+body {
+  background: #f7f7f7;
+  margin: 0;
+  color: #404040;
+  font-family: "Open Sans", Arial, sans-serif;
+  line-height: 22px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+a {
+  color: #189279;
+}
+
+a:hover,
+a:focus {
+  color: #23d4af;
+}
+
+a:active {
+  color: #0d5043;
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+
+/* WRAPPER*/
+/*================================================*/
+.wrap {
+  min-height: 100%;
+  width: 100%;
+}
+
+
+.left-sidebar {
+  display: block;
+  height: 100%;
+  float: left;
+  position: relative;
+  width: 285px;                     /*total sidebar width*/
+  z-index: 1030;
+}
+
+.left-sidebar {
+  background: #202020;
+  color: #ffffff;
+}
+
+ul#main-nav > li.active-item > a {                  /*text r size thik rakhe*/
+  border-bottom-left-radius: 5px;
+}
+
+ul#main-nav li a {
+  padding: 12px 30px;
+  font-size: 15px;
+  color: #ffffff;                      /*text color*/
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+ul#main-nav li a:hover, ul#main-nav li a:focus {
+  background: #131313;
+}
+
+ul#main-nav li.has-child-item > a:after {
+  font-family: 'FontAwesome';
+  font-size: 0.7692307692rem;
+  content: '\f067';
+  color: #ffffff;
+  position: absolute;
+  padding: 14px;                                /*padding of +*/
+  right: 0;
+  top: 0;
+  opacity: 1;
+}
+
+ul#main-nav li.has-child-item.open-item > ul.child-nav {        /*na thakle top kore off hobe*/
+  display: block;
+}
+
+ul#main-nav li.has-child-item.open-item > a:after {          /*+ theke - hobe*/
+  content: '\f068';
+}
+
+ul#main-nav ul.child-nav {                  /*khule thakbe na gusano thakbe*/
+  display: none;
+}
+
+
+
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+/* LEFT SIDEBAR SUBNAVIGATION */
+/*================================================*/
+ul#main-nav.nav-left-lines ul.child-nav li a:before {        /*dot height borabor color  green*/
+  position: absolute;
+  content: "";
+  left: 28px;
+  top: 0px;
+  bottom: 0px;
+  border-left: 1px solid #2f2f2f;
+}
+
+ul#main-nav.nav-left-lines ul.child-nav li:hover > a:before {       /*dot undenline color  green*/
+  border-color: #189279;
+}
+
+
+
+
+ul#main-nav.nav-left-lines ul.child-nav li.open-item:before {       /*dot underline */
+  position: absolute;
+  content: "";
+  left: 28px;
+  top: 41px;
+  bottom: 0px;
+  border-top: 1px solid #189279;
+  width: 40px;
+}
+
+ul#main-nav.nav-left-lines ul.child-nav li.open-item > a:before {      /*dot line*/
+  border-color: #189279;
+}
+
+
+ul#main-nav.nav-left-lines ul.child-nav.level-1 li a {        /*2nd item list spacing*/
+  padding: 10px 58px;
+}
+
+
+ul#main-nav.nav-left-lines ul.child-nav.level-2 li a {          /*3rd item list spacing*/
+  padding: 10px 75px;
+}

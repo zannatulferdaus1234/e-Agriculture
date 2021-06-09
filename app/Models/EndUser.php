@@ -14,6 +14,17 @@ class EndUser extends Authenticatable
 
     protected $guarded = [];
 
+    public function getAvatarAttribute($value)
+    {
+        if($value) {
+            return asset('storage/'.$value);
+        }
+        else{
+            return asset('assets/webapp/images/teamlarge.jpg');
+        }
+    }
+
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
@@ -23,6 +34,7 @@ class EndUser extends Authenticatable
     {
         return $this->hasMany(Question::class);
     }
+
     public function comment()
     {
         return $this->hasMany(Comment::class);

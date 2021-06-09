@@ -18,7 +18,6 @@ class CommentController extends Controller
 
     public function storeComment()
     {
-
         $attributes = request()->validate([
             'content_id' => 'required',
             'details' => 'required',

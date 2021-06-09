@@ -27,7 +27,8 @@ class EndUserFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'phone' => $this->faker->unique()->phoneNumber,
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'avatar' => $this->faker->image,
+            'password' => '$2y$10$alSwPfiVK/ngdGMGbqXOqOdA78p7jaCkLxSP53BmQunFcKBT9xJ/.', // password
             'remember_token' => Str::random(10),
         ];
     }

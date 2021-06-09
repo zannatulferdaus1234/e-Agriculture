@@ -6686,13 +6686,13 @@ Search Overlay End
 .dropdown-menu.cart-box {
 	left: inherit;
 	right: 0;
-	width: 320px;
-	padding: 20px;
+	width: 220px;
+	padding: 10px;
 	border-radius: 0px;
 	top: 63px;
 }
 .cart-box .list {
-	margin: 8px 0 0;
+	margin: 4px 0 0;
 	padding: 0;
 	list-style-type: none;
 	width: 100%;
@@ -6711,17 +6711,17 @@ Search Overlay End
 	line-height: 24px;
 }
 .cart-box .preview {
-	width: 65px;
+	width: 55px;
 	display: block;
 	float: left
 }
 .cart-box .description {
-	margin-left: 80px
+	margin-left: 50px
 }
 .cart-box .price {
 	display: block;
 	padding-top: 8px;
-	font-size: 1em
+	font-size: 2rem
 }
 .cart-box .total {
 	text-align: right;

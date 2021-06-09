@@ -25,7 +25,7 @@
                 <div class="blog-post">
 
                     <div class="blog-thumb">
-                        <img src="{{ asset('/storage/'.$sub_category->image)}}" alt="category-image">
+                        <img src="{{ asset('/storage/'.$sub_category->image)}}" alt="category-image" style="height:400px">
                     </div>
                     <div class="post-txt">
                         <ul class="post-meta">
@@ -43,19 +43,10 @@
             @endforelse
              <!--Blog Small Post End-->
           </div>
-          <div class="gt-pagination">
-             <nav>
-                <ul class="pagination">
-                   <li class="page-item"> <a class="page-link" href="#" aria-label="Previous"> <i class="fas fa-angle-left"></i> </a> </li>
-                   <li class="page-item"><a class="page-link" href="#">1</a></li>
-                   <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                   <li class="page-item"><a class="page-link" href="#">3</a></li>
-                   <li class="page-item"> <a class="page-link" href="#" aria-label="Next"> <i class="fas fa-angle-right"></i> </a> </li>
-                </ul>
-             </nav>
-          </div>
+
        </div>
     </div>
+
  </section>
 
  @endsection

@@ -18,7 +18,7 @@
 
     @csrf
     <div class="input-group">
-       <input type="email" class="form-control" placeholder="Enter Email" name="email" value="{{old('email')}}">
+       <input type="email" class="form-control" placeholder="Enter Email" name="email" value="{{old('email')}}" autofocus autocomplete="email">
     </div>
     <div class="input-group">
        <input type="password" class="form-control" placeholder="Enter Password" name="password" >

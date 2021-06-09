@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use  Illuminate\Contracts\Auth\Authenticatable;
-
+use Illuminate\Validation\Rule;
 
 class EndUserController extends Controller
 {
@@ -23,12 +23,20 @@ class EndUserController extends Controller
 
     public function createUser()
     {
-        $end_user = EndUser::create(request()->validate([
+        $attributes = request()->validate([
             'name' => 'required|string|max:255',
+            'avatar' => 'image',
             'phone' => ['required', 'unique:end_users','regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:end_users'],
             'password' => 'required|string|min:6|max:255|confirmed'
-        ]));
+        ]);
+        if(request('avatar'))
+        {
+            $attributes['avatar'] = request('avatar')->store('endUsers_image','public');
+        }
+
+        $end_user= EndUser::create($attributes);
+
         event(new UserRegistered($end_user));
         // UserRegistered::dispatch('end_user');
         $category = Category::get();
@@ -81,5 +89,31 @@ class EndUserController extends Controller
     {
         $category = Category::get();
         return view('webapp.content.single-content',compact('category'));
+    }
+
+    public function profile()
+    {
+        $category = Category::get();
+        return view('webapp.user.profile',compact('category'));
+    }
+
+    public function updateProfile(EndUser $end_user)
+    {
+        $attributes = request()->validate([
+            'name' => 'required|max:255',
+            'email' => ['required', 'email', 'string', 'max:255', Rule::unique('end_users')->ignore($end_user)],
+            'phone' => ['required','regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/', Rule::unique('end_users')->ignore($end_user)],
+            'avatar' => 'image',
+            //  'password' => 'required|string|min:6|max:255|confirmed'
+        ]);
+
+        if(request('avatar'))
+        {
+            $attributes['avatar'] = request('avatar')->store('endUsers_image','public');
+        }
+
+        $end_user->update($attributes);
+        return redirect()->back();
+
     }
 }

@@ -74,20 +74,27 @@
 
              <li class="nav-item"> <a class="nav-link" href="{{ route('all-question') }}">Question</a> </li>
 
-
           </ul>
+
+
+
           <ul class="topnav-right">
             <li> <a class="search-icon" href="#search"> <i class="fas fa-search"></i> </a> </li>
 
              @auth('end_user')
-                <li class="login-reg"> <a href="">{{Auth::guard('end_user')->user()->name}}</a> </li>
+                <li class="login-reg dropdown px-3"> <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="">{{Auth::guard('end_user')->user()->name}}</a>
+                    <ul class="dropdown-menu mt-3" >
+                        <li><a href="{{ route('user_profile')}}">My Profile</a></li>
+                        <li><a href="blog-list.html">Blog List</a> </li>
+                    </ul>
+                </li>
                 <li class="login-reg"> <a href="{{route('userLogout')}}">Logout</a> </li>
-
             @else
                 <li class="login-reg"> <a href="{{ route('userLogin')}}">Login</a> | <a href="{{ route('userRegistration')}}">Register</a> </li>
             @endauth
 
         </ul>
+
        </div>
     </nav>
  </header>

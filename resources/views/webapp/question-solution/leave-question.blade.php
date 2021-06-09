@@ -17,7 +17,13 @@
        <div class="row">
           <div class="col-lg-12">
              <div class="myaccount-form">
-                <h3>Ask Your Question</h3>
+
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <h3>Ask Your Question</h3>
+
+                        <a class=" btn btn-success text-light float-right" href="{{ url()->previous() }}">Back to the previous page</a>
+                    </div>
+
                 <form method="POST" action="{{ route('store-question') }}" enctype="multipart/form-data">
                 @csrf
                    <ul class="row">

@@ -46,11 +46,11 @@
                                     </div>
 
                                     <div class="form-group mt-md">
-                                        <label for="grain_varieties" class="col-sm-3 control-label">Crops Grain<span class="text-danger">*</span></label>
+                                        <label for="grain" class="col-sm-3 control-label">Crops Grain<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="grain_varieties" name="grain_varieties" value="{{old('grain_varieties')}}" placeholder="Enter Crops Grain">
+                                            <input type="text" class="form-control" id="grain" name="grain" value="{{old('grain')}}" placeholder="Enter Crops Grain">
 
-                                            @error('grain_varieties')
+                                            @error('grain')
                                                 <p class="text-danger">{{$message}}</p>
                                             @enderror
                                         </div>

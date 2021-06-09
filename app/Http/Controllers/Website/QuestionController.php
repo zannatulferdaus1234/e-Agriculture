@@ -11,12 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
-
     public function index()
     {
         $category = Category::get();
-        $question = Question::latest()->get();
-        return view('webapp.question-solution.all-question', compact('question','category'));
+        $questions = Question::latest()->paginate(10)->onEachSide(3);;
+        return view('webapp.question-solution.all-question', compact('questions','category'));
     }
 
     public function create()

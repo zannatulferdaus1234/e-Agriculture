@@ -95,12 +95,12 @@ Route::prefix('/contents')->group(function () {
 
 Route::prefix('/comments')->group(function () {
     Route::get('/',      [AdminCommentController::class,'index'])  ->name('manage-comments');
-    Route::get('/content/{content}/comment/add',    [AdminCommentController::class,'create'])->name('create-comments');
-    Route::post('/content/{content}/comment',       [AdminCommentController::class,'store']) ->name('store-comments');
-    Route::get('/content/{content}/comment/show',   [AdminCommentController::class,'show'])  ->name('show-comments');
-    Route::get('/content/{content}/comment/{comment}/edit',     [AdminCommentController::class,'edit']) ->name('edit-comments');
-    Route::PATCH('/content/{content}/comment/{comment}/update', [AdminCommentController::class,'update']) ->name('update-comments');
-    Route::get('/content/{content}/comment/{comment}/delete',   [AdminCommentController::class,'destroy'])  ->name('delete-comments');
+    Route::get('/{content}/comment/add',    [AdminCommentController::class,'create'])->name('create-comments');
+    Route::post('/{content}/comment',       [AdminCommentController::class,'store']) ->name('store-comments');
+    Route::get('/{content}/comment/show',   [AdminCommentController::class,'show'])  ->name('show-comments');
+    Route::get('/{content}/comment/{comment}/edit',     [AdminCommentController::class,'edit']) ->name('edit-comments');
+    Route::PATCH('/{content}/comment/{comment}/update', [AdminCommentController::class,'update']) ->name('update-comments');
+    Route::get('/{content}/comment/{comment}/delete',   [AdminCommentController::class,'destroy'])  ->name('delete-comments');
 });
 
 Route::prefix('/replies')->group(function () {
@@ -149,8 +149,13 @@ Route::get('/userRegistration', [EndUserController::class,'register'])->name('us
 Route::post('/userRegistration',[EndUserController::class,'createUser'])->name('create_userRegistration');
 Route::get('/userLogin',        [EndUserController::class,'login'])->name('userLogin')->middleware('AlreadyLoggedIn');
 Route::post('/userLogin',       [EndUserController::class,'loginCheck'])->name('userLoginCheck');
-Route::get('/userLogout',       [EndUserController::class,'logout'])->name('userLogout');
-Route::get('/user/forgotPassword',[EndUserController::class,'forgotPassword'])->name('user_forgotPassword');
+Route::get('/userForgotPassword',[EndUserController::class,'forgotPassword'])->name('user_forgotPassword');
+
+Route::middleware(['end_user'])->group(function(){
+    Route::get('/userLogout',       [EndUserController::class,'logout'])->name('userLogout');
+    Route::get('/userProfile',[EndUserController::class,'profile'])->name('user_profile');
+    Route::PATCH('/userProfile/{end_user}',[EndUserController::class,'updateProfile'])->name('user_profileUpdate');
+});
 
 //Show all sub_category
 Route::get('/{categories:name}/all-SubCategory',[WebsiteCategoryController::class,'all_sub_category'])->name('all-sub_category');
@@ -160,6 +165,9 @@ Route::get('/{sub_category:name}/all-content',  [WebsiteCategoryController::clas
 Route::get('/{sub_category:name}/{content}',    [WebsiteCategoryController::class,'single_content'])->name('single_content');
 
 
+//End user Authentication
+Route::middleware(['end_user'])->group(function(){
+
 //Make a comment for user
 Route::get('/{sub_category:name}/{content}/comment',[WebsiteCommentController::class,'createComment'])->name('add-comment');
 Route::post('/{content}/comment',[WebsiteCommentController::class,'storeComment'])->name('storeComment');
@@ -168,4 +176,5 @@ Route::post('/{content}/comment',[WebsiteCommentController::class,'storeComment'
 Route::get('/ask-question',     [QuestionController::class,'create'])->name('ask-question');
 Route::get('/ask-question/{id}',[QuestionController::class,'subcat'])->name('ask-questionS');
 Route::post('/ask-question',    [QuestionController::class,'store']) ->name('store-question');
-Route::get('/all-question',     [QuestionController::class,'index'])  ->name('all-question');
+});
+Route::get('/all-question',     [QuestionController::class,'index']) ->name('all-question');

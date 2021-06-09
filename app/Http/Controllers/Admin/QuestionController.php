@@ -23,33 +23,31 @@ class QuestionController extends Controller
         return view('admin.navbar.sub_category.questions.create',compact('sub_category'));
     }
 
-    public function store(User $user)
+    public function store()
     {
         $attributes = request()->validate([
             'sub_category_id' => 'required',
-            'grain' => 'required',
-            'soil_type' => 'required',
-            'title' => 'required|max:255',
-            'details' => 'required|max:600',
-            'image' => 'required',
+            'grain' => '',
+            'soil_type' => '',
+            'title' => 'required',
+            'details' => '',
+            'image' => 'image',
         ]);
 
         if(request('image'))
         {
-            $attributes['image'] = request('image')->store('crops_question_image','public');
+            $attributes['image'] = request('image')->store('question_image','public');
         }
 
         Question::create([
-            'user_id'=> auth()->id(),
+            'end_user_id'=> auth()->id(),
             'sub_category_id' => $attributes['sub_category_id'],
             'grain' => $attributes['grain'],
             'soil_type' => $attributes['soil_type'],
             'title' => $attributes['title'],
             'details' => $attributes['details'],
             'image' => $attributes['image'],
-
         ]);
-
 
         return redirect(route('manage-crops_question'));
     }

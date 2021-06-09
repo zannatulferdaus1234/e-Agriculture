@@ -4,10 +4,18 @@
     <!--Inner Header Start-->
     <section class="wf100 p100 inner-header">
         <div class="container">
-            <h1>{{$sub_category->name}}</h1>
+            @if ($sub_category->name)
+                <h1>{{$sub_category->name}}</h1>
+            @else
+                <h1>No Content Added Yet!!!</h1>
+            @endif
+
             <ul>
                 <li><a href="{{ route('webapp') }}">Home</a></li>
-                <li><a href="javascript:avoid(0)"> {{$sub_category->name}} </a></li>
+                @if ($sub_category->name)
+                    <li><a href="javascript:avoid(0)"> {{$sub_category->name}} </a></li>
+                @else
+                @endif
             </ul>
         </div>
     </section>
@@ -41,17 +49,10 @@
                 @endforelse
                 </div>
 
-                <div class="gt-pagination">
-                    <nav>
-                       <ul class="pagination">
-                          <li class="page-item"> <a class="page-link" href="#" aria-label="Previous"> <i class="fas fa-angle-left"></i> </a> </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"> <a class="page-link" href="#" aria-label="Next"> <i class="fas fa-angle-right"></i> </a> </li>
-                       </ul>
-                    </nav>
-                 </div>
+                {{-- <div class="d-flex justify-content-center">
+                    {{ $sub_category->onEachSide(1)->links('webapp.pagination.pagination') }}
+                </div> --}}
+
                  <br><br><br><br>
 
                 <div class="post-comments wf100 mt-5">
@@ -90,6 +91,8 @@
         </div>
     </section>
     <!--Blog  End-->
+
+
 
 @endsection
 

@@ -59,7 +59,7 @@
 
                                     <td>
                                         <a href="{{ route('edit-reply',[$reply->comment->id,$reply->id]) }}" class="btn btn-danger btn-sm"> <i class="fa fa-pencil"> Edit</i></a>
-                                        <a href="{{ route('delete-comments',[$reply->comment->id,$reply->id]) }}" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"> Delete</i></a>
+                                        <a href="{{ route('delete-reply',[$reply->comment->id,$reply->id]) }}" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"> Delete</i></a>
                                     </td>
                                   </tr>
 

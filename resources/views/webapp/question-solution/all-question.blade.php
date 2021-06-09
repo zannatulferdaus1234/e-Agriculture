@@ -1,8 +1,3 @@
-{{-- Hello
-@foreach ($question as $question)
-<p>{{ $question->details}}</p>
-@endforeach  --}}
-
 
 @extends('webapp.layout.main-layout')
 
@@ -26,7 +21,7 @@
                 <div class="col-lg-12 col-md-12">
                     <a class=" btn btn-success btn-block text-light mb-4" href="{{ route('ask-question')}}">Post Your Question</a>
 
-                    @foreach ($question as $question)
+                    @foreach ($questions as $question)
 
                     <div class="author-box wf100">
                         <ul class="comments">
@@ -74,7 +69,11 @@
                 </div>
             </div>
         </div>
+        <div class="d-flex justify-content-center">
+            {{ $questions->links('webapp.pagination.pagination') }}
+        </div>
     </div>
+
 </section>
 
 
