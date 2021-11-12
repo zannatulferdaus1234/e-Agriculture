@@ -1,0 +1,103 @@
+name
+index
+lifespan
+breed_innovation
+land_selection
+seed_picking
+seedbed_preparation
+seedbed_care
+land_preparation
+planting_distance
+seedlings
+weed_control
+fertilizer
+irrigation
+pest
+insect
+disease
+harvesting
+yield
+images
+
+
+sub_category_id
+grain_varieties
+soil_type
+title
+details
+image
+
+
+
+                                      <th>Index</th>
+                                      <th>Lifespan</th>
+                                      <th>Breed_innovation</th>
+                                      <th>Land_selection</th>
+                                      <th>Seed_picking</th>
+                                      <th>Seedbed_preparation</th>
+                                      <th>Seedbed_care</th>
+                                      <th>Land_preparation</th>
+                                      <th>Planting_distance</th>
+                                      <th>Seedlings</th>
+                                      <th>Weed_control</th>
+                                      <th>Fertilizer</th>
+                                      <th>Irrigation</th>
+                                      <th>Pest</th>
+                                      <th>Insect</th>
+                                      <th>Disease</th>
+                                      <th>Harvesting</th>
+                                      <th>Yield</th>
+
+
+                <td>{{ $sub_category->index }}</td>
+                <td>{{ $sub_category->lifespan }}</td>
+                <td>{{ $sub_category->breed_innovation }}</td>
+                <td>{{ $sub_category->land_selection }}</td>
+                <td>{{ $sub_category->seed_picking }}</td>
+                <td>{{ $sub_category->seedbed_preparation }}</td>
+                <td>{{ $sub_category->seedbed_care }}</td>
+                <td>{{ $sub_category->land_preparation }}</td>
+                <td>{{ $sub_category->planting_distance }}</td>
+                <td>{{ $sub_category->seedlings }}</td>
+                <td>{{ $sub_category->weed_control }}</td>
+                <td>{{ $sub_category->fertilizer }}</td>
+                <td>{{ $sub_category->irrigation }}</td>
+                <td>{{ $sub_category->pest }}</td>
+                <td>{{ $sub_category->insect }}</td>
+                <td>{{ $sub_category->disease }}</td>
+                <td>{{ $sub_category->harvesting }}</td>
+                <td>{{ $sub_category->yield }}</td>
+
+
+
+<div class="side-menu animate-dropdown outer-bottom-xs">
+    <div class="head"><i class="icon fa fa-align-justify fa-fw">
+        </i> Categories</div>
+
+    <nav class="yamm megamenu-horizontal">
+        <ul class="nav">
+            @foreach($category as $category)
+            <li class="dropdown menu-item"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon fa fa-shopping-bag" aria-hidden="true"></i>
+                {{ $category->name}}</a>
+                <ul class="dropdown-menu mega-menu">
+                    <li class="yamm-content">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-3">
+                                <ul class="links list-unstyled">
+                                    @foreach($category->sub_category as $sub_category)
+
+                                        <li><a href="{{ route('show-category',$sub_category-> name)}}">{{ $sub_category->name}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            @endforeach
+        </ul>
+    </nav>
+
+</div>
+
